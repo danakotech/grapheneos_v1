@@ -1,0 +1,31 @@
+{
+  "name": "grapheneos-es",
+  "version": "1.0.0",
+  "private": true,
+  "description": "www.grapheneos.es — guía en español de GrapheneOS: qué es y cómo instalarlo",
+  "author": "danakotech (https://github.com/danakotech)",
+  "license": "UNLICENSED",
+  "copyright": "© 2026 github.com/danakotech. Todos los derechos reservados.",
+  "homepage": "https://www.grapheneos.es",
+  "repository": "https://github.com/danakotech",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "lenis": "1.1.0",
+    "next": "16.4.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "three": "0.170.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "0.170.0",
+    "typescript": "^5"
+  }
+}

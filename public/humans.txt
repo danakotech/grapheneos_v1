@@ -1,0 +1,10 @@
+/* TEAM */
+Propietario: danakotech
+GitHub: https://github.com/danakotech
+Web: https://www.grapheneos.es
+
+/* SITE */
+Idioma: español (es-ES)
+Última actualización: 2026-10-29
+Tecnología: Next.js, React, Three.js, Lenis
+Privacidad: sin cookies, sin analítica, sin rastreadores
