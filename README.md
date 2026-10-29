@@ -24,3 +24,5 @@ npm run indexnow -- /instalar         # solo algunas rutas
 ```
 
 Clave: `public/ed33ad1f180cdeed927e637e1a0f5bfd.txt`.
+
+www.grapheneos.es by danakotech FLE
