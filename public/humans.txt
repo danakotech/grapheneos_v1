@@ -7,4 +7,4 @@ Web: https://www.grapheneos.es
 Idioma: español (es-ES)
 Última actualización: 2026-10-29
 Tecnología: Next.js, React, Three.js, Lenis
-Privacidad: sin cookies, sin analítica, sin rastreadores
+Privacidad: sin publicidad; Google Analytics solo con consentimiento

@@ -10,14 +10,15 @@ import path from "node:path";
 const root = path.resolve(__dirname);
 const dev = process.env.NODE_ENV !== "production";
 
-/* Una web sobre seguridad debe dar ejemplo: CSP estricta, sin recursos de terceros. */
+/* CSP estricta; la única excepción de terceros es Google Tag Manager / Analytics. */
+const GOOGLE = "https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com";
 const CSP = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  `img-src 'self' data: blob: ${GOOGLE}`,
   "font-src 'self'",
-  `connect-src 'self'${dev ? " ws:" : ""}`,
+  `connect-src 'self'${dev ? " ws:" : ""} ${GOOGLE}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

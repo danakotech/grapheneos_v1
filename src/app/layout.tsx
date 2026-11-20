@@ -8,6 +8,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import World from "@/components/world/World";
 import Loader from "@/components/Loader";
+import Cookies from "@/components/Cookies";
 import { Header, Motion } from "@/components/Chrome";
 import { Footer } from "@/components/Site";
 import { BRAND, OWNER, SITE } from "@/lib/content";
@@ -67,10 +68,24 @@ export const metadata: Metadata = {
 const BOOT =
   "var d=document.documentElement;d.classList.add('js');try{if(sessionStorage.getItem('gos-intro'))d.classList.add('seen');else d.classList.add('loading')}catch(e){d.classList.add('seen')}";
 
+/*
+ * Google Tag Manager con Consent Mode v2: todo denegado por defecto; la analítica solo se activa
+ * si el usuario la aceptó en el aviso de cookies (localStorage "gos-consent"). Nunca publicidad.
+ * El evento gtm.js es el que dispara los activadores "Todas las páginas".
+ */
+const GTM_ID = "GTM-P8SFP4V3";
+const GTAG =
+  "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}" +
+  "var c='denied';try{if(localStorage.getItem('gos-consent')==='granted')c='granted'}catch(e){}" +
+  "gtag('consent','default',{analytics_storage:c,ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});" +
+  "gtag('js',new Date());dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${display.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: GTAG }} />
+        <script async src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`} />
         <script dangerouslySetInnerHTML={{ __html: BOOT }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ld(baseGraph()) }} />
         <link rel="author" href="/humans.txt" />
@@ -83,6 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <Cookies />
       </body>
     </html>
   );

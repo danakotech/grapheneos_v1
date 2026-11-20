@@ -8,6 +8,7 @@
 
 import Link from "next/link";
 import { NAV, OFFICIAL, OWNER } from "@/lib/content";
+import { CookieLink } from "@/components/Cookies";
 
 /** Marca propia: celda de grafeno con núcleo protegido. */
 export function Logo({ size = 28 }: { size?: number }) {
@@ -63,7 +64,7 @@ export function Footer() {
               GrapheneOS<em>.es</em>
             </span>
           </Link>
-          <p>La guía en español para entender GrapheneOS e instalarlo en tu Pixel. Sin cookies, sin rastreadores y sin anuncios.</p>
+          <p>La guía en español para entender GrapheneOS e instalarlo en tu Pixel. Sin anuncios.</p>
         </div>
         <nav aria-label="Sitio">
           <h2>Guía</h2>
@@ -73,6 +74,7 @@ export function Footer() {
             </Link>
           ))}
           <Link href="/aviso-legal">Aviso legal</Link>
+          <CookieLink />
         </nav>
         <nav aria-label="Fuentes oficiales">
           <h2>Oficial</h2>
